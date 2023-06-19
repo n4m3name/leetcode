@@ -1,2 +1,2 @@
 # leetcode
-Leetcode practice &amp; solutions
+[Leetcode](https://leetcode.com/) practice &amp; solutions
