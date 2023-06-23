@@ -10,9 +10,10 @@ class NumberOfSteps:
                 num -= 1
             c += 1
         return c
+
     # Bitwise approach: Odd when rightmost bit is one,
     # Halve value by moving all bits right one space `>>`
-    # Use a bitmask () of 000...01 and the & operator:
+    # Use a bitmask () of 000...01 and the `&` operator:
     def numberOfStepsBit(num: int) -> int:
         c = 0
         while num != 0:

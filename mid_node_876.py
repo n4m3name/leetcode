@@ -1,4 +1,6 @@
-class Solutions:
+import ListNode
+
+class MiddleNode:
 
     #876
     def middleNode(head: [ListNode]) -> [ListNode]:
@@ -12,5 +14,5 @@ class Solutions:
     c, c.val = ListNode.ListNode(), 3
     a.next = b
     b.next = c
-    
+
     print(middleNode(a))
