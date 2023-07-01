@@ -1,6 +1,5 @@
 class MaximumWealth:
 
-
     #1672
     def maximumWealth(accounts: [[int]]) -> int:
         max = 0
