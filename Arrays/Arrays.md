@@ -85,3 +85,66 @@ public static boolean linearSearch(int[] array, int length, int element) {
     return false;
 }
 ```
+
+\+ Note: Can traverse an array forwards, backwards, or BOTH!
+
+### In-place operations
+Works directly on array elements instead of creating a new array.
+
+### Repeated deletion algorithm update
+"Given a sorted array, remove the duplicates such that each element appears only once."
+
+Original algorithm:
+```
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int length = nums.length;
+        for (int i = length - 2; i >= 0; i--) {
+            if (nums[i] == nums[i + 1]) {
+                for (int j = i + 1; j < length; j++) {
+                    nums[j - 1] = nums[j];
+                }
+                length--;
+            }
+        }
+        return length;
+    }
+}
+```
+
+Solution: Two-pointer technique
+1. Read elements to ID duplicates; readPointer
+2. Keep track of next position in front to write the next unique element we've found; writePointer
+```
+public int removeDuplicates(int[] nums) {
+        
+  // Check for edge cases.
+  if (nums == null) {
+      return 0;
+  }
+  
+  // Use the two pointer technique to remove the duplicates in-place.
+  // The first element shouldn't be touched; it's already in its correct place.
+  int writePointer = 1;
+  // Go through each element in the Array.
+  for (int readPointer = 1; readPointer < nums.length; readPointer++) {
+      // If the current element we're reading is *different* to the previous
+      // element...
+      if (nums[readPointer] != nums[readPointer - 1]) {
+          // Copy it into the next position at the front, tracked by writePointer.
+          nums[writePointer] = nums[readPointer];
+          // And we need to now increment writePointer, because the next element
+          // should be written one space over.
+          writePointer++;
+      }
+  }
+  
+  // This turns out to be the correct length value.
+  return writePointer;
+}
+```
+
+\+ Note: In-place op's not always ideal, i.e. if original array values needed in future. Valuable since they reduce the space complexity of algo.
+
+
+
